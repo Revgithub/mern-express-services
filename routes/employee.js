@@ -47,7 +47,7 @@ employeeRouter.put("/updateEmployee", (req, res) => {
 });
 
 
-employeeRouter.delete("/deleteEmployee", (req, res) => {
+employeeRouter.post("/deleteEmployee", (req, res) => {
     Employee.findOneAndRemove({_id:req.body._id}).then((data) => {
         if(!data){
             return res.status(400).json({message:'Employee not found'})
